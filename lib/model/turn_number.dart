@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 
 enum TurnNumber {
   First,
@@ -26,22 +23,5 @@ extension TurnNumberExtension on TurnNumber {
       case TurnNumber.Fourth:
         return 'Change to Fourth';
     }
-  }
-}
-
-TurnNumber getRandomTurnNumber() {
-  Random rand = Random();
-  int num = rand.nextInt(TurnNumber.values.length);
-  switch (num) {
-    case 0:
-      return TurnNumber.First;
-    case 1:
-      return TurnNumber.Second;
-    case 2:
-      return TurnNumber.Third;
-    case 3:
-      return TurnNumber.Fourth;
-    default:
-      throw Exception('$num is not switching parameter');
   }
 }

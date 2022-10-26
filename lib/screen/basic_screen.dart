@@ -1,27 +1,21 @@
-import 'package:enum_extension/turn_number.dart';
+import 'dart:math';
+
+import 'package:enum_extension/model/turn_number.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    const MaterialApp(
-      home: HomeScreen(),
-    ),
-  );
-}
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class BasicScreen extends StatefulWidget {
+  const BasicScreen({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<BasicScreen> createState() => _BasicScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _BasicScreenState extends State<BasicScreen> {
   @override
   Widget build(BuildContext context) {
     TurnNumber turnNumber = getRandomTurnNumber();
     return Scaffold(
-      appBar: AppBar(title: const Text('Enum Extension')),
+      appBar: AppBar(title: const Text('Basic Screen')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -43,5 +37,22 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  TurnNumber getRandomTurnNumber() {
+    Random rand = Random();
+    int num = rand.nextInt(TurnNumber.values.length);
+    switch (num) {
+      case 0:
+        return TurnNumber.First;
+      case 1:
+        return TurnNumber.Second;
+      case 2:
+        return TurnNumber.Third;
+      case 3:
+        return TurnNumber.Fourth;
+      default:
+        throw Exception('$num is not switching parameter');
+    }
   }
 }

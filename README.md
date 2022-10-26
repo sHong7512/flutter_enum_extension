@@ -1,3 +1,3 @@
 # enum_extension
 
-Enum & Extension Example
+Enum & Extension Example (+ Riverpod)
